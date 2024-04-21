@@ -32,13 +32,13 @@ def read():
     return cats
 
 
-def create(name, age, description):
+def create(name, age, features):
     return db.cats.insert_one({
         'name': name,
         'age': age,
         'features': features
     })
-def update(cat_id, name, age, description):
+def update(cat_id, name, age, features):
     return db.cats.update_one({'_id': ObjectId(cat_id)}, {'$set': {'name': name, 'age': age, 'features': features}})
 def delete(cat_id):
     return db.cats.delete_one({'_id': ObjectId(cat_id)})
